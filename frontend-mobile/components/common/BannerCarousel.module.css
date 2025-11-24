@@ -1,0 +1,121 @@
+/* BannerCarousel组件样式 */
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background-color: #f5f5f5;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 宽高比 */
+}
+
+.bannerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.bannerContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+}
+
+.bannerTitle {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.bannerDescription {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* 占位符样式 */
+.placeholderBanner {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 轮播指示器 */
+.bannerIndicators {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  display: flex;
+  gap: 6px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .bannerContent {
+    padding: 12px;
+  }
+  
+  .bannerTitle {
+    font-size: 16px;
+  }
+  
+  .bannerDescription {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner {
+    padding-bottom: 36%; /* 更宽的显示比例 */
+  }
+  
+  .bannerTitle {
+    font-size: 20px;
+  }
+  
+  .bannerDescription {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,344 @@
+.container {
+  padding: 16px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 80px; /* 为底部操作按钮留出空间 */
+}
+
+/* 页面头部样式 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  margin-bottom: 16px;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #1890ff;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.editButton {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.cardContent {
+  padding-top: 8px;
+}
+
+/* 信息行样式 */
+.infoRow {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  width: 80px;
+  font-size: 14px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.infoValue {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+  word-break: break-word;
+}
+
+/* 优先级样式 */
+.priorityHigh {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+.priorityMedium {
+  color: #faad14;
+  font-weight: 500;
+}
+
+.priorityLow {
+  color: #52c41a;
+  font-weight: 500;
+}
+
+/* 信息组样式 */
+.infoGroup {
+  margin-top: 12px;
+  padding: 10px 0;
+}
+
+.infoGroupTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.infoText {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 生命体征网格 */
+.vitalsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.vitalItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.vitalLabel {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.vitalValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+/* 时间信息样式 */
+.timeInfo {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.timeInfo p {
+  margin: 4px 0;
+}
+
+/* 底部操作按钮 */
+.bottomActions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.actionButton {
+  flex: 1;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+/* 加载状态 */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.loadingSpinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #1890ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 错误状态 */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.errorText {
+  font-size: 16px;
+  color: #ff4d4f;
+  margin-bottom: 20px;
+}
+
+.homeLink {
+  color: #1890ff;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 16px;
+  background-color: #e6f7ff;
+  border-radius: 4px;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .container {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .infoLabel {
+    width: 70px;
+    font-size: 13px;
+  }
+
+  .infoValue {
+    font-size: 13px;
+  }
+
+  .vitalsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomActions {
+    padding: 10px 12px;
+  }
+
+  .actionButton {
+    padding: 10px 12px;
+    margin: 0 6px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .vitalsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 触摸反馈 */
+.backButton:active,
+.editButton:active,
+.actionButton:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* 滚动条样式 */
+.container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

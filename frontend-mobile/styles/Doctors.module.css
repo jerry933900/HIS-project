@@ -1,0 +1,439 @@
+.container {
+  padding: 16px;
+  padding-bottom: 80px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.searchBar {
+  margin-bottom: 16px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 25px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.searchInput:focus {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.filterSection {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filterItem {
+  margin-bottom: 12px;
+}
+
+.filterItem:last-child {
+  margin-bottom: 0;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.filterSelect:focus {
+  border-color: #1890ff;
+}
+
+.resultStats {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.doctorsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doctorCard {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.doctorCard:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.doctorInfo {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.avatarContainer {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.doctorDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctorHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  gap: 8px;
+}
+
+.doctorName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.doctorTitle {
+  font-size: 12px;
+  color: #1890ff;
+  background-color: #e6f7ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.doctorDepartment {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.doctorHospital {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.doctorSpecialty {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.doctorMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingValue {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.reviewCount {
+  color: #999;
+}
+
+.experience {
+  color: #999;
+}
+
+.doctorPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+.priceSymbol {
+  font-size: 12px;
+  color: #ff4d4f;
+}
+
+.priceValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff4d4f;
+}
+
+.priceUnit {
+  font-size: 12px;
+  color: #999;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.bookButton {
+  flex: 1;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.bookButton:active {
+  background-color: #40a9ff;
+}
+
+.detailButton {
+  flex: 1;
+  background-color: white;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.detailButton:active {
+  background-color: #f0f7ff;
+}
+
+.noResults {
+  text-align: center;
+  padding: 40px 0;
+  color: #999;
+}
+
+.resetButton {
+  margin-top: 16px;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resetButton:active {
+  background-color: #40a9ff;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  
+  .filterSection {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .filterItem {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+.doctorName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.doctorDepartment {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+/* 统计信息样式 */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.statItem {
+  font-size: 12px;
+  color: #999;
+}
+
+.statSeparator {
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.experience {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 专长标签样式 */
+.specialtyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* 医生简介样式 */
+.description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 底部信息样式 */
+.bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.availability {
+  flex: 1;
+}
+
+.availabilityText {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.availableTime {
+  font-size: 12px;
+  color: #999;
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.feeText {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff4d4f;
+}
+
+.appointmentButton {
+  border-radius: 16px;
+  padding: 6px 20px;
+  font-size: 14px;
+}
+
+/* 加载和错误状态 */
+.loadingContainer,
+.errorContainer {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  min-height: 300px;
+}
+
+.loadingContainer > div,
+.errorContainer > div {
+  margin-bottom: 16px;
+}
+
+/* 空状态 */
+.empty {
+  padding: 60px 0;
+}
+
+/* 响应式设计 */
+@media (min-width: 480px) {
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .searchContainer {
+    top: 0;
+    position: static;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .doctorCard {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  .doctorCard:active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

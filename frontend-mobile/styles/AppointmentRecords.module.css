@@ -1,0 +1,468 @@
+/* 预约记录页面样式 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.backLink {
+  color: #4caf50;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.placeholder {
+  width: 40px;
+}
+
+/* 搜索框样式 */
+.searchContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #a0aec0;
+}
+
+/* 标签页样式 */
+.tabContainer {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #718096;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeTab {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  color: white;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+.tab:hover:not(.activeTab) {
+  background: #f7fafc;
+  color: #4a5568;
+}
+
+/* 记录列表样式 */
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recordCard {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.recordCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: #e2e8f0;
+}
+
+.recordHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f7fafc;
+}
+
+.doctorInfo {
+  flex: 1;
+}
+
+.doctorName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 4px 0;
+}
+
+.department {
+  font-size: 14px;
+  color: #718096;
+  margin: 0;
+}
+
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+/* 状态颜色映射 */
+.statusPending {
+  background: #ff9800;
+}
+
+.statusConfirmed {
+  background: #4caf50;
+}
+
+.statusCompleted {
+  background: #2196f3;
+}
+
+.statusCanceled {
+  background: #f44336;
+}
+
+.recordDetails {
+  margin-bottom: 12px;
+}
+
+.detailItem {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.detailLabel {
+  color: #718096;
+  margin-right: 8px;
+  min-width: 50px;
+}
+
+.detailValue {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.recordFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f7fafc;
+}
+
+.symptoms {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.arrowIcon {
+  font-size: 20px;
+  color: #a0aec0;
+  font-weight: bold;
+}
+
+/* 空状态样式 */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.emptyIcon {
+  font-size: 72px;
+  margin-bottom: 20px;
+  color: #a0aec0;
+}
+
+.emptyText {
+  font-size: 16px;
+  color: #718096;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.makeAppointmentLink {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+.makeAppointmentLink:hover {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* 模态框样式 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #718096;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: #2d3748;
+  transform: scale(1.1);
+}
+
+.modalBody {
+  padding: 20px;
+}
+
+.detailSection {
+  margin-bottom: 24px;
+}
+
+.detailRow {
+  display: flex;
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f7fafc;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detailLabel {
+  color: #718096;
+  width: 80px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.detailValue {
+  color: #4a5568;
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.statusText {
+  font-weight: 600;
+}
+
+.cancelButton {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(244, 67, 54, 0.2);
+  margin-top: 20px;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.cancelButton:disabled {
+  background: #f8d7da;
+  color: #721c24;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 底部提示 */
+.footerTip {
+  margin-top: 32px;
+  padding: 12px;
+  background: #fff3cd;
+  border-radius: 12px;
+  text-align: center;
+  border-left: 4px solid #ffc107;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.footerTip p {
+  margin: 0;
+  font-size: 12px;
+  color: #856404;
+  line-height: 1.5;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .modalContent {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .modalHeader,
+  .modalBody {
+    padding: 16px;
+  }
+  
+  .detailRow {
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  .detailLabel {
+    width: auto;
+    margin-bottom: 6px;
+  }
+  
+  .recordHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .statusBadge {
+    margin-top: 8px;
+    align-self: flex-start;
+  }
+}

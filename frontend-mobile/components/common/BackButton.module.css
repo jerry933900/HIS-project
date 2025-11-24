@@ -1,0 +1,94 @@
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.backButton:hover {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backButton:active {
+  background-color: #f0f0f0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.backIcon {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0078d4;
+}
+
+.backText {
+  font-weight: 500;
+}
+
+/* 适配不同场景的变体样式 */
+.small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.small .backIcon {
+  font-size: 14px;
+}
+
+.large {
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+.large .backIcon {
+  font-size: 18px;
+}
+
+.primary {
+  background-color: #0078d4;
+  color: white;
+  border-color: #0078d4;
+}
+
+.primary:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
+
+.primary .backIcon {
+  color: white;
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ghost:hover {
+  background-color: #f5f5f5;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .backButton {
+    padding: 7px 11px;
+    font-size: 13px;
+  }
+  
+  .backIcon {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,406 @@
+.container {
+  padding: 16px;
+  padding-bottom: 80px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #666;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* 医生信息卡片 */
+.doctorCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.doctorInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarContainer {
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.doctorDetails {
+  flex: 1;
+}
+
+.doctorNameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.doctorName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.doctorTitle {
+  font-size: 14px;
+  color: #1890ff;
+  background-color: #e6f7ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.doctorDepartment {
+  font-size: 15px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.doctorHospital {
+  font-size: 14px;
+  color: #888;
+  margin: 4px 0;
+}
+
+.doctorPrice {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff4d4f;
+  margin-top: 8px;
+}
+
+/* 表单样式 */
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formSection {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+/* 日期选择器 */
+.dateSelector {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dateOption {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  background: #f5f5f5;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dateOption:hover {
+  background: #e6f7ff;
+  border-color: #91d5ff;
+}
+
+.selectedDate {
+  background: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+
+/* 时间选择器 */
+.timeSelector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.timeOption {
+  padding: 10px 8px;
+  background: #f5f5f5;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.timeOption:hover:not(.unavailableTime) {
+  background: #e6f7ff;
+  border-color: #91d5ff;
+}
+
+.selectedTime {
+  background: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+
+.unavailableTime {
+  background: #f5f5f5;
+  color: #ccc;
+  border-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.unavailableText {
+  display: block;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* 表单元素 */
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.formTextarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.formTextarea:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 温馨提示 */
+.notice {
+  background: #fff7e6;
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 4px solid #faad14;
+}
+
+.noticeTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d46b08;
+  margin: 0 0 8px 0;
+}
+
+.noticeList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.noticeList li {
+  font-size: 13px;
+  color: #8c5f1f;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+/* 提交按钮 */
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  background: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #40a9ff;
+}
+
+.submitButton:disabled {
+  background: #d9d9d9;
+  cursor: not-allowed;
+}
+
+/* 成功页面样式 */
+.successContainer {
+  padding: 24px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.successIcon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.successTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #52c41a;
+  margin: 0 0 24px 0;
+}
+
+.successInfo {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.successInfo p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.successTip {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.successActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.backHomeButton,
+.viewDoctorsButton {
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.backHomeButton {
+  background: #1890ff;
+  color: white;
+}
+
+.backHomeButton:hover {
+  background: #40a9ff;
+}
+
+.viewDoctorsButton {
+  background: white;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+}
+
+.viewDoctorsButton:hover {
+  background: #e6f7ff;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .timeSelector {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .dateSelector {
+    overflow-x: visible;
+    flex-wrap: wrap;
+  }
+  
+  .dateOption {
+    flex: 1;
+    min-width: 100px;
+  }
+  
+  .successContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+}

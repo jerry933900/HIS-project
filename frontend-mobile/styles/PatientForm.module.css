@@ -1,0 +1,579 @@
+/* 患者信息录入表单样式 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.backLink {
+  color: #4caf50;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.placeholder {
+  width: 40px;
+}
+
+/* 表单样式 */
+.form {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.formTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.stepTitle {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: #f44336;
+  margin-left: 2px;
+}
+
+.subsection {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.subsectionTitle {
+  color: #444;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 步骤指示器样式 */
+.stepIndicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.stepIndicator::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 40px;
+  right: 40px;
+  height: 4px;
+  background-color: #e0e0e0;
+  z-index: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.stepLabel {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.activeStep .stepNumber {
+  background-color: #007aff;
+  color: white;
+}
+
+.activeStep .stepLabel {
+  color: #007aff;
+  font-weight: 500;
+}
+
+/* 步骤内容区域 */
+.stepContent {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 导航按钮样式 */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.prevButton,
+.nextButton {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.prevButton {
+  background-color: #f0f0f0;
+  color: #333;
+  margin-right: 12px;
+}
+
+.prevButton:hover {
+  background-color: #e0e0e0;
+}
+
+.nextButton {
+  background-color: #007aff;
+  color: white;
+  margin-left: 12px;
+}
+
+.nextButton:hover {
+  background-color: #0056b3;
+}
+
+.prevButton:disabled,
+.nextButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 输入框和下拉框样式 */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: white;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.inputError,
+.select.inputError,
+.textarea.inputError {
+  border-color: #ff3b30;
+  background-color: #fff0f0;
+}
+
+.inputError:focus,
+.select.inputError:focus,
+.textarea.inputError:focus {
+  border-color: #ff3b30;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+.inputError,
+.selectError,
+.textareaError {
+  border-color: #f44336;
+}
+
+.inputError:focus,
+.selectError:focus,
+.textareaError:focus {
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* 错误提示 */
+.errorText {
+  color: #ff3b30;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  line-height: 1.4;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .form {
+    padding: 12px;
+  }
+  
+  .stepLabel {
+    font-size: 11px;
+  }
+  
+  .stepNumber {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  .navigationButtons {
+    flex-direction: column;
+  }
+  
+  .prevButton,
+  .nextButton {
+    margin: 6px 0;
+  }
+  
+  .input,
+  .select,
+  .textarea {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepIndicator {
+    margin-bottom: 24px;
+  }
+  
+  .stepLabel {
+    display: none;
+  }
+  
+  .stepTitle {
+    font-size: 18px;
+  }
+  
+  .subsection {
+    padding: 12px;
+  }
+}
+
+/* 单选按钮组样式 */
+.radioGroup {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.radioLabel:hover {
+  background-color: #f7fafc;
+}
+
+.radioLabel input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.radioText {
+  font-size: 14px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* 区块标题 */
+.sectionTitle {
+  color: #555;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4caf50;
+}
+
+/* 按钮组样式 */
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.submitButton {
+  flex: 1;
+  padding: 15px;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.35);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.resetButton {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #da190b;
+}
+
+.resetButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* 重置按钮容器 */
+.resetContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* 温馨提示 */
+.notice {
+  margin-top: 24px;
+  padding: 16px;
+  background: #e8f5e9;
+  border-radius: 12px;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.notice p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.notice ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.notice li {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* 成功页面样式 */
+.successContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.successIcon {
+  font-size: 72px;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+.successTitle {
+  font-size: 22px;
+  color: #4caf50;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.successMessage {
+  font-size: 16px;
+  color: #4a5568;
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.successTips {
+  font-size: 14px;
+  color: #718096;
+  margin: 0 0 28px 0;
+  line-height: 1.6;
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.backButton,
+.viewButton {
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+  background: #f7fafc;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.backButton:hover {
+  background: #edf2f7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.viewButton {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.viewButton:hover {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .form {
+    padding: 16px;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .successContainer {
+    padding: 32px 16px;
+  }
+  
+  .radioGroup {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .radioLabel {
+    width: 100%;
+    justify-content: center;
+  }
+}

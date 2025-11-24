@@ -1,0 +1,737 @@
+/* 移动端首页样式 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: calc(var(--bottom-nav-height) + 14px); /* 为底部导航留出空间 */
+}
+
+/* 头部样式 */
+.header {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  padding: 20px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  margin: 0 0 12px 0;
+}
+
+.welcomeMessage {
+  color: white;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* 通知图标样式 */
+.notificationIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 10px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* 通用区块样式 */
+.section {
+  margin-bottom: 20px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 8px;
+  width: fit-content;
+}
+
+.viewMore {
+  color: #4caf50;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* 数据统计卡片样式 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid #e8f5e9;
+  transition: transform 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4caf50;
+  margin: 0 0 4px 0;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 最近患者列表样式 */
+.patientList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patientCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  transition: all 0.3s;
+}
+
+.patientCard:hover {
+  border-color: #4caf50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+}
+
+.patientInfo {
+  flex: 1;
+}
+
+.patientName {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+  margin: 0 0 6px 0;
+}
+
+.patientDetails {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.patientPriority {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.priorityHigh {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.priorityMedium {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.priorityLow {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* 快捷功能样式 */
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+  padding: 8px;
+}
+
+.actionItem:hover {
+  transform: translateY(-3px);
+}
+
+.actionIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  color: #4caf50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.actionTitle {
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 科室网格样式 */
+.departmentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.departmentCard {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.departmentCard:hover {
+  border-color: #4caf50;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+.departmentIcon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.departmentName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 6px 0;
+}
+
+.departmentDesc {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.doctorCount {
+  font-size: 11px;
+  color: #4caf50;
+  background: #e8f5e9;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* 预约列表样式 */
+.appointmentList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appointmentCard {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.appointmentCard:hover {
+  border-color: #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.appointmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* 系统通知样式 */
+.notificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notificationCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  background: white;
+  display: flex;
+  gap: 12px;
+  transition: all 0.3s;
+}
+
+.notificationCard:hover {
+  border-color: #4caf50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+}
+
+.notificationIconLarge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8f5e9;
+  color: #4caf50;
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+.notificationContent {
+  flex: 1;
+}
+
+.notificationTitle {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  margin: 0 0 6px 0;
+}
+
+.notificationMessage {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.notificationTime {
+  font-size: 11px;
+  color: #888;
+}
+
+/* 健康提醒样式 */
+.healthReminder {
+  background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(255, 126, 95, 0.3);
+}
+
+.reminderTitle {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 0 12px 0;
+}
+
+.reminderContent {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 375px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quickActions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .departmentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .section {
+    padding: 12px;
+  }
+  
+  .actionIcon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .patientDetails {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.appointmentDepartment {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.statusBadge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.statusConfirmed {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.statusPending {
+  background: #fff3e0;
+  color: #ff9800;
+}
+
+.statusCompleted {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+
+.appointmentInfo {
+  margin-bottom: 12px;
+}
+
+.appointmentDetail {
+  font-size: 14px;
+  color: #616161;
+  margin: 6px 0;
+}
+
+.appointmentDetail strong {
+  color: #333;
+}
+
+.appointmentActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detailButton {
+  padding: 6px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.detailButton:hover {
+  background: #45a049;
+}
+
+/* 医生推荐样式 */
+.doctorList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doctorCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.3s;
+}
+
+.doctorCard:hover {
+  border-color: #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.doctorInfo {
+  flex: 1;
+}
+
+.doctorName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.doctorDepartment {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.doctorRating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratingStar {
+  font-size: 14px;
+}
+
+.doctorRating span {
+  font-size: 13px;
+  color: #666;
+}
+
+.patientCount {
+  font-size: 12px;
+  color: #999;
+}
+
+.appointButton {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.appointButton:hover {
+  background: #45a049;
+}
+
+/* 功能说明样式 */
+.noticeCard {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #a5d6a7;
+}
+
+.noticeTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.noticeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.noticeSection {
+  background: white;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.noticeSection h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+.featureList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.featureItem {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* 底部样式 */
+.footer {
+  text-align: center;
+  padding: 16px 0 80px 0; /* 为底部导航留出空间 */
+  color: #666;
+  font-size: 12px;
+}
+
+/* 底部导航栏 */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  height: 60px;
+  align-items: center;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #757575;
+  flex: 1;
+  transition: color 0.2s;
+}
+
+.navItem.active {
+  color: #4caf50;
+}
+
+.navIcon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.navText {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+  
+  .header {
+    padding: 16px 12px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .quickActions {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .actionIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .departmentGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .departmentCard {
+    padding: 12px;
+  }
+  
+  .section {
+    padding: 14px;
+  }
+  
+  .doctorCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .appointButton {
+    align-self: flex-end;
+  }
+  
+  .footer {
+    margin-bottom: 60px;
+  }
+}

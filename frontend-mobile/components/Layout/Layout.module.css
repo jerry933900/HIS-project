@@ -1,0 +1,38 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-tertiary);
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--bottom-nav-height);
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* 移动端安全区域适配 */
+@media (padding-bottom: env(safe-area-inset-bottom)) {
+  .main {
+    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+  }
+}
+
+/* 响应式设计 - 平板和桌面端 */
+@media (min-width: 768px) {
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    height: 100vh;
+  }
+  
+  .main {
+    height: calc(100% - var(--bottom-nav-height));
+  }
+}

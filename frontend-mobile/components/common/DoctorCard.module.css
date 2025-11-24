@@ -1,0 +1,199 @@
+/* DoctorCard组件样式 */
+.doctorCard {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doctorCard:hover,
+.doctorCard:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.doctorImage {
+  position: relative;
+  margin-right: 16px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.onlineStatus {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #52c41a;
+  border: 2px solid white;
+}
+
+.doctorInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doctorNameContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.doctorName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-right: 8px;
+}
+
+.doctorTitle {
+  font-size: 12px;
+  color: #1890ff;
+  background-color: #e6f7ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.doctorDepartment {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.doctorStats {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  color: #999;
+  line-height: 1.2;
+}
+
+.statValue {
+  color: #666;
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 30px;
+  background-color: #f0f0f0;
+  margin: 0 12px;
+}
+
+.consultationPrice {
+  display: flex;
+  align-items: baseline;
+}
+
+.priceLabel {
+  font-size: 12px;
+  color: #999;
+  margin-right: 4px;
+}
+
+.priceAmount {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f5222d;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .doctorCard {
+    padding: 12px;
+  }
+  
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .doctorImage {
+    margin-right: 12px;
+  }
+  
+  .doctorName {
+    font-size: 15px;
+  }
+  
+  .doctorTitle {
+    font-size: 11px;
+  }
+  
+  .doctorDepartment {
+    font-size: 12px;
+  }
+  
+  .doctorStats {
+    font-size: 11px;
+  }
+  
+  .statDivider {
+    margin: 0 8px;
+    height: 24px;
+  }
+  
+  .priceAmount {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .doctorCard {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .avatar {
+    width: 96px;
+    height: 96px;
+  }
+  
+  .doctorImage {
+    margin-right: 20px;
+  }
+}
+
+/* 加载动画 - 仅在客户端显示 */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doctorCard.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}
