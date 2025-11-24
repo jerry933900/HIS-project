@@ -42,6 +42,10 @@ export const useUserStore = defineStore('user', () => {
         permissions: ['admin:*']
       }
       
+      // 确保状态立即更新，用于路由守卫判断
+      // 强制刷新响应式状态
+      token.value = token.value
+      
       return { data: { token: mockToken } }
       
       // 正常登录流程（暂时注释掉，后端API不可用）

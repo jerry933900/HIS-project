@@ -101,7 +101,8 @@ export default {
       
       try {
         // 调用登录接口
-        await userStore.doLogin(loginForm.username, loginForm.password)
+        const response = await userStore.doLogin(loginForm.username, loginForm.password)
+        console.log('登录成功', response)
         
         // 记住用户名
         if (loginForm.rememberMe) {
@@ -113,10 +114,20 @@ export default {
         // 登录成功提示
         ElMessage.success('登录成功')
         
-        // 获取重定向路径，没有则默认到首页
-        const redirectPath = route.query.redirect || '/'
-        router.push(redirectPath)
+        // 处理重定向，确保正确跳转
+        const redirectPath = route.query.redirect ? String(route.query.redirect) : '/dashboard'
+        // 使用setTimeout确保状态已更新后再跳转
+        setTimeout(() => {
+          router.push(redirectPath).then(() => {
+            console.log('成功跳转到:', redirectPath)
+          }).catch(error => {
+            console.error('跳转失败:', error)
+            // 失败时尝试直接跳转到dashboard
+            router.push('/dashboard')
+          })
+        }, 100)
       } catch (error) {
+        console.error('登录失败', error)
         // 登录失败，显示错误信息
         ElMessage.error(userStore.error || '登录失败，请重试')
       } finally {

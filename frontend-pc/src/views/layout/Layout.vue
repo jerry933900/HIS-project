@@ -411,11 +411,20 @@ body {
     transition: margin-left var(--transition-speed) ease;
     border-left: 1px solid #e0e0e0;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+    overflow-x: visible; /* 确保水平方向不被隐藏 */
   }
 
 .content-expanded {
-  margin-left: 0;
-}
+    margin-left: 0;
+  }
+  
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow: visible; /* 确保内容可以完整显示 */
+    width: 100%;
+  }
+
 
 .logo {
   padding: 20px;
