@@ -70,8 +70,8 @@ function Home() {
       const year = now.getFullYear();
       const month = (now.getMonth() + 1).toString().padStart(2, '0');
       const date = now.getDate().toString().padStart(2, '0');
-      const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][now.getDay()];
-      setCurrentDate(`${year}-${month}-${date} 星期${dayOfWeek}`);
+      // const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][now.getDay()];
+      setCurrentDate(`${year}-${month}-${date}`);
     };
 
     updateDateTime();
@@ -113,8 +113,10 @@ function Home() {
           </div>
           <div className={styles.headerRight}>
             <div className={styles.timeContainer}>
-              <span className={styles.currentTime}>{currentTime}</span>
               <span className={styles.currentDate}>{currentDate}</span>
+               {' '}
+              <span className={styles.currentTime}>{currentTime}</span>{' '}
+              <span>{`星期${['日', '一', '二', '三', '四', '五', '六'][new Date().getDay()]}`}</span>
             </div>
             <div className={styles.notificationContainer}>
               <div className={styles.notificationIcon}>🔔</div>
