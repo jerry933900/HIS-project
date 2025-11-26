@@ -1,0 +1,246 @@
+/* 在线咨询列表页面样式 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: 60px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: calc(var(--bottom-nav-height) + 14px); /* 为底部导航留出空间 */
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  z-index: 100;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.backButton {
+  font-size: 16px;
+  color: #4caf50;
+  cursor: pointer;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.newConsultButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 内容区域 */
+.content {
+  margin-top: 16px;
+}
+
+/* 加载状态 */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* 错误状态 */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: #f44336;
+}
+
+.errorContainer button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 空状态 */
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: #999;
+}
+
+.emptyConsultButton {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* 咨询列表 */
+.consultationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 咨询项 */
+.consultItem {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.consultItem:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 医生头像 */
+.doctorAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #4caf50;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* 咨询信息 */
+.consultInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.consultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.doctorName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.consultTime {
+  font-size: 12px;
+  color: #999;
+}
+
+.consultLastMessage {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 未读消息标记 */
+.unreadBadge {
+  background-color: #f44336;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  margin-left: 8px;
+}
+
+/* 搜索栏 */
+.searchBar {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.searchIcon {
+  color: #999;
+  margin-right: 8px;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    padding-top: 60px;
+  }
+  
+  .consultItem {
+    padding: 14px;
+  }
+  
+  .doctorAvatar {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .doctorName {
+    font-size: 15px;
+  }
+  
+  .consultLastMessage {
+    font-size: 13px;
+  }
+}

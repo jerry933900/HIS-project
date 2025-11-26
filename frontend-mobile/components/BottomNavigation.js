@@ -22,10 +22,16 @@ const BottomNavigation = () => {
       path: '/appointments',
     },
     {
-      id: 'patient',
-      label: '患者',
-      icon: '👥',
-      path: '/patient-form',
+      id: 'reports',
+      label: '报告',
+      icon: '📋',
+      path: '/reports',
+    },
+    {
+      id: 'consultations',
+      label: '咨询',
+      icon: '💬',
+      path: '/consultations',
     },
     {
       id: 'me',
@@ -45,7 +51,9 @@ const BottomNavigation = () => {
     <nav className={styles.bottomNavigation}>
       {navItems.map((item) => {
         const isActive = router.pathname === item.path || 
-                       (item.id === 'patient' && router.pathname.includes('patient-'));
+                       (item.id === 'patient' && router.pathname.includes('patient-')) ||
+                       (item.id === 'reports' && router.pathname.includes('reports')) ||
+                       (item.id === 'consultations' && router.pathname.includes('consultation'));
         
         return (
           <Link
