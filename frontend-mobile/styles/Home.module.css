@@ -139,6 +139,44 @@
   letter-spacing: 0.5px;
 }
 
+.statTrend {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.trendUp {
+  color: #52c41a;
+}
+
+.trendDown {
+  color: #fa8c16;
+}
+
+.statCardLink {
+  text-decoration: none;
+  display: block;
+}
+
+.statCard {
+  position: relative;
+}
+
+.chevronIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #999;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.statCardLink:hover .chevronIcon {
+  opacity: 1;
+}
+
 /* 最近患者列表样式 */
 .patientList {
   display: flex;

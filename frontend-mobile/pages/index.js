@@ -72,6 +72,8 @@ function Home() {
       { id: 2, title: '待处理', value: 12, icon: '⏳', trend: '-3%', color: '#faad14' },
       { id: 3, title: '本周挂号', value: 156, icon: '📅', trend: '+8%', color: '#52c41a' },
       { id: 4, title: '总患者数', value: 1258, icon: '👥', trend: '+2%', color: '#722ed1' },
+      { id: 5, title: '今日新患者', value: 23, icon: '👶', trend: '+12%', color: '#eb2f96' },
+      { id: 6, title: '平均等待时间', value: '18分钟', icon: '⏰', trend: '-5%', color: '#fa8c16' },
     ]);
 
 
@@ -103,21 +105,26 @@ function Home() {
         </div>
       </header>
 
-      {/* 数据统计卡片 */}
+      {/* 数据统计卡片 - 可点击导航到详情页 */}
       <section className={styles.statsSection}>
         <h2 className={styles.sectionTitle}>数据统计</h2>
         <div className={styles.statsGrid}>
           {patientStats.map((stat) => (
-            <div key={stat.id} className={styles.statCard}>
-              <div className={styles.statIcon} style={{ backgroundColor: `${stat.color}20` }}>
-                <span style={{ color: stat.color }}>{stat.icon}</span>
+            <Link key={stat.id} href={`/statistics?type=${encodeURIComponent(stat.title)}&id=${stat.id}`} className={styles.statCardLink}>
+              <div className={styles.statCard}>
+                <div className={styles.statIcon} style={{ backgroundColor: `${stat.color}20` }}>
+                  <span style={{ color: stat.color }}>{stat.icon}</span>
+                </div>
+                <div className={styles.statInfo}>
+                  <div className={styles.statValue} style={{ color: stat.color }}>{stat.value}</div>
+                  <div className={styles.statLabel}>{stat.title}</div>
+                  <div className={`${styles.statTrend} ${stat.trend.startsWith('+') ? styles.trendUp : styles.trendDown}`}>
+                    {stat.trend}
+                  </div>
+                </div>
+                <div className={styles.chevronIcon}>›</div>
               </div>
-              <div className={styles.statInfo}>
-                <div className={styles.statValue} style={{ color: stat.color }}>{stat.value}</div>
-                <div className={styles.statLabel}>{stat.title}</div>
-                <div className={styles.statTrend}>{stat.trend}</div>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

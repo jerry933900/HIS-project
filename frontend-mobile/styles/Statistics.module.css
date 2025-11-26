@@ -1,0 +1,379 @@
+/* 统计详情页面样式 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: 60px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: calc(var(--bottom-nav-height) + 14px); /* 为底部导航留出空间 */
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  z-index: 100;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.backButton {
+  font-size: 16px;
+  color: #4caf50;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.placeholder {
+  width: 60px;
+}
+
+/* 加载状态 */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* 主要统计卡片 */
+.mainStatsCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.mainStatsHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mainStatsIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.mainStatsInfo {
+  flex: 1;
+}
+
+.mainStatsValue {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.mainStatsTrend {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 明细区块样式 */
+.detailsSection {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 简单图表样式 */
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chartBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.chartBarLabel {
+  font-size: 14px;
+  color: #666;
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.chartBarFill {
+  flex: 1;
+  height: 20px;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.chartBarValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  width: 50px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* 操作按钮样式 */
+.actionsSection {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #45a049;
+}
+
+/* 趋势样式 */
+.trendUp {
+  color: #52c41a;
+}
+
+.trendDown {
+  color: #fa8c16;
+}
+
+/* 抽屉样式 */
+.drawerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+}
+
+.drawerOverlayVisible {
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.historyDrawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* 调整阴影，避免与导航栏阴影重叠 */
+  z-index: 999; /* 设为比导航栏低，确保导航栏在最上层 */
+  transition: bottom 0.3s ease;
+  height: 70vh; /* 减小高度，确保在导航栏上方 */
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+.historyDrawerOpen {
+  bottom: calc(var(--bottom-nav-height)); /* 使用CSS变量匹配导航栏高度，确保精确对齐 */
+  border-bottom: none;
+}
+
+/* 确保抽屉底部没有多余的边框或分隔线 */
+.drawerContent {
+  padding: 16px 20px;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  border-bottom: none; /* 确保没有底部边框 */
+}
+
+.drawerHandle {
+  width: 40px;
+  height: 4px;
+  background-color: #ddd;
+  border-radius: 2px;
+  margin: 12px auto;
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.drawerTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.drawerCloseButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawerContent {
+  padding: 16px 20px;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/* 确保抽屉内容可以完全滚动 */
+.drawerContent > * {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* 添加自定义滚动条样式（仅在Webkit浏览器中可见） */
+.drawerContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drawerContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drawerContent::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: all 0.2s;
+}
+
+.historyItem:active {
+  background-color: #f0f0f0;
+  transform: scale(0.98);
+}
+
+.historyDate {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.historyInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.historyValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.historyTrend {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.historyTrend.trendUp {
+  color: #e74c3c;
+}
+
+.historyTrend.trendDown {
+  color: #27ae60;
+}
+
+/* 底部样式 */
+.footer {
+  text-align: center;
+  padding: 16px 0;
+  color: #999;
+  font-size: 12px;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    padding-top: 60px;
+  }
+  
+  .mainStatsValue {
+    font-size: 28px;
+  }
+  
+  .chartBarLabel {
+    width: 60px;
+    font-size: 12px;
+  }
+  
+  .chartBarValue {
+    width: 40px;
+    font-size: 12px;
+  }
+}

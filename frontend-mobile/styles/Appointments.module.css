@@ -122,6 +122,22 @@
   color: #1890ff;
 }
 
+/* 不同状态的样式 */
+.statusPending {
+  background-color: #fff7e6;
+  color: #fa8c16;
+}
+
+.statusCompleted {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.statusCancelled {
+  background-color: #f5f5f5;
+  color: #8c8c8c;
+}
+
 /* 预约详情部分 */
 .appointmentDetails {
   border-top: 1px solid #f0f0f0;
