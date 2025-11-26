@@ -281,6 +281,107 @@
   margin: 16px 0;
 }
 
+/* 系统通知样式 */
+.notificationList {
+  margin: 0 16px 16px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: 8px 0;
+}
+
+.notificationItem {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.notificationItem:last-child {
+  border-bottom: none;
+}
+
+.notificationContent {
+  flex: 1;
+}
+
+.notificationTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.notificationMessage {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.notificationTime {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+/* 健康提醒样式 */
+.reminderList {
+  margin: 0 16px 16px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: 8px 0;
+}
+
+.reminderCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.reminderCard:last-child {
+  border-bottom: none;
+}
+
+.reminderIcon {
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.reminderContent {
+  flex: 1;
+}
+
+.reminderTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.reminderMessage {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 提醒级别样式 */
+.levelHigh .reminderTitle {
+  color: #ff4d4f;
+}
+
+.levelMedium .reminderTitle {
+  color: #faad14;
+}
+
+.levelLow .reminderTitle {
+  color: #52c41a;
+}
+
 /* 响应式设计 */
 @media (min-width: 480px) {
   .container {
@@ -292,7 +393,9 @@
   .userCard,
   .statsContainer,
   .menuContainer,
-  .logoutButton {
+  .logoutButton,
+  .notificationList,
+  .reminderList {
     margin-left: 24px;
     margin-right: 24px;
   }

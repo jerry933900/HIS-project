@@ -19,7 +19,7 @@ const BottomNavigation = () => {
       id: 'appointment',
       label: '预约',
       icon: '📅',
-      path: '/appointment',
+      path: '/appointments',
     },
     {
       id: 'patient',

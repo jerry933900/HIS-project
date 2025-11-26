@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import BackButton from '../components/common/BackButton';
 import styles from '../styles/Profile.module.css';
@@ -16,8 +16,39 @@ const mockUserData = {
 
 const Profile = () => {
   const [userData] = useState(mockUserData);
-  const [notifications, setNotifications] = useState(3);
+  const [notificationCount, setNotificationCount] = useState(3);
   const [appointments, setAppointments] = useState(5);
+  const [systemNotifications, setSystemNotifications] = useState([]);
+  const [healthReminders, setHealthReminders] = useState([]);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [showReminders, setShowReminders] = useState(false);
+  
+  useEffect(() => {
+    // 模拟数据 - 系统通知
+    setSystemNotifications([
+      { id: 1, title: '系统维护通知', message: '系统将于今晚23:00-次日01:00进行维护，请提前做好准备。', time: '10分钟前' },
+      { id: 2, title: '新功能上线', message: '移动端预约挂号功能已上线，欢迎体验！', time: '1小时前' },
+      { id: 3, title: '数据备份完成', message: '系统数据已完成每周备份，请放心使用。', time: '2小时前' },
+    ]);
+
+    // 模拟数据 - 健康提醒
+    setHealthReminders([
+      { id: 1, title: '高血压患者随访提醒', message: '您有5位高血压患者需要进行月度随访。', level: 'high' },
+      { id: 2, title: '疫苗接种提醒', message: '3位儿童需要按时接种疫苗，请通知家长。', level: 'medium' },
+      { id: 3, title: '定期体检提醒', message: '10位45岁以上患者需要安排年度体检。', level: 'low' },
+    ]);
+  }, []);
+
+  const handleNotificationClick = () => {
+    setShowNotifications(!showNotifications);
+    if (notificationCount > 0) {
+      setNotificationCount(0);
+    }
+  };
+  
+  const handleReminderClick = () => {
+    setShowReminders(!showReminders);
+  };
 
   // 菜单项数据
   const menuItems = [
@@ -33,6 +64,19 @@ const Profile = () => {
       title: '我的患者',
       icon: '👥',
       link: '/patients'
+    },
+    {
+      id: 'notifications',
+      title: '系统通知',
+      icon: '📢',
+      badge: systemNotifications.length,
+      onClick: handleNotificationClick
+    },
+    {
+      id: 'reminders',
+      title: '健康提醒',
+      icon: '🔔',
+      onClick: handleReminderClick
     },
     {
       id: 'settings',
@@ -61,12 +105,6 @@ const Profile = () => {
     { label: '本月接诊', value: '156' },
     { label: '总接诊量', value: '2835' }
   ];
-
-  const handleNotificationClick = () => {
-    // 实际项目中这里会跳转到通知页面并重置通知数
-    alert('查看通知');
-    setNotifications(0);
-  };
 
   return (
     <div className={styles.container}>
@@ -97,7 +135,7 @@ const Profile = () => {
           onClick={handleNotificationClick}
         >
           🔔
-          {notifications > 0 && <span className={styles.notificationBadge}>{notifications}</span>}
+          {notificationCount > 0 && <span className={styles.notificationBadge}>{notificationCount}</span>}
         </button>
       </div>
 
@@ -114,8 +152,21 @@ const Profile = () => {
       {/* 菜单列表 */}
       <div className={styles.menuContainer}>
         {menuItems.map((item) => (
-          <Link key={item.id} href={item.link} legacyBehavior>
-            <a className={styles.menuItem}>
+          item.link ? (
+            <Link key={item.id} href={item.link} legacyBehavior>
+              <a className={styles.menuItem}>
+                <div className={styles.menuLeft}>
+                  <span className={styles.menuIcon}>{item.icon}</span>
+                  <span className={styles.menuTitle}>{item.title}</span>
+                  {item.badge && (
+                    <span className={styles.menuBadge}>{item.badge}</span>
+                  )}
+                </div>
+                <span className={styles.menuArrow}>›</span>
+              </a>
+            </Link>
+          ) : (
+            <div key={item.id} className={styles.menuItem} onClick={item.onClick}>
               <div className={styles.menuLeft}>
                 <span className={styles.menuIcon}>{item.icon}</span>
                 <span className={styles.menuTitle}>{item.title}</span>
@@ -123,11 +174,43 @@ const Profile = () => {
                   <span className={styles.menuBadge}>{item.badge}</span>
                 )}
               </div>
-              <span className={styles.menuArrow}>›</span>
-            </a>
-          </Link>
+              <span className={styles.menuArrow}>{showNotifications && item.id === 'notifications' || showReminders && item.id === 'reminders' ? '▼' : '›'}</span>
+            </div>
+          )
         ))}
       </div>
+      
+      {/* 系统通知详情 */}
+      {showNotifications && (
+        <div className={styles.notificationList}>
+          {systemNotifications.map((notification) => (
+            <div key={notification.id} className={styles.notificationItem}>
+              <div className={styles.notificationContent}>
+                <h4 className={styles.notificationTitle}>{notification.title}</h4>
+                <p className={styles.notificationMessage}>{notification.message}</p>
+                <p className={styles.notificationTime}>{notification.time}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {/* 健康提醒详情 */}
+      {showReminders && (
+        <div className={styles.reminderList}>
+          {healthReminders.map((reminder) => (
+            <div key={reminder.id} className={`${styles.reminderCard} ${styles[`level${reminder.level.charAt(0).toUpperCase() + reminder.level.slice(1)}`]}`}>
+              <div className={styles.reminderIcon}>
+                {reminder.level === 'high' ? '🔴' : reminder.level === 'medium' ? '🟡' : '🟢'}
+              </div>
+              <div className={styles.reminderContent}>
+                <h4 className={styles.reminderTitle}>{reminder.title}</h4>
+                <p className={styles.reminderMessage}>{reminder.message}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* 退出登录按钮 */}
       <button className={styles.logoutButton}>

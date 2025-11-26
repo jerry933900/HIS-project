@@ -40,22 +40,11 @@ const recentPatients = [
   { id: 2003, name: '王五', age: 12, gender: '男', lastVisit: '2025-11-22', status: '待审核' },
 ];
 
-const systemNotifications = [
-  { id: 3001, title: '您的预约已确认', time: '10分钟前', important: true },
-  { id: 3002, title: '患者信息审核通过', time: '2小时前', important: false },
-  { id: 3003, title: '新的检查报告已生成', time: '昨天', important: true },
-];
 
-const healthReminders = [
-  { id: 4001, title: '记得按时服药', time: '今天 18:00', department: '内科' },
-  { id: 4002, title: '复诊提醒', time: '2025-12-05', department: '皮肤科' },
-];
 
 function Home() {
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
-  const [notifications, setNotifications] = useState([]);
-  const [healthReminders, setHealthReminders] = useState([]);
   const [patientStats, setPatientStats] = useState([]);
 
   useEffect(() => {
@@ -85,19 +74,7 @@ function Home() {
       { id: 4, title: '总患者数', value: 1258, icon: '👥', trend: '+2%', color: '#722ed1' },
     ]);
 
-    // 模拟数据 - 系统通知
-    setNotifications([
-      { id: 1, title: '系统维护通知', message: '系统将于今晚23:00-次日01:00进行维护，请提前做好准备。', time: '10分钟前' },
-      { id: 2, title: '新功能上线', message: '移动端预约挂号功能已上线，欢迎体验！', time: '1小时前' },
-      { id: 3, title: '数据备份完成', message: '系统数据已完成每周备份，请放心使用。', time: '2小时前' },
-    ]);
 
-    // 模拟数据 - 健康提醒
-    setHealthReminders([
-      { id: 1, title: '高血压患者随访提醒', message: '您有5位高血压患者需要进行月度随访。', level: 'high' },
-      { id: 2, title: '疫苗接种提醒', message: '3位儿童需要按时接种疫苗，请通知家长。', level: 'medium' },
-      { id: 3, title: '定期体检提醒', message: '10位45岁以上患者需要安排年度体检。', level: 'low' },
-    ]);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -118,10 +95,7 @@ function Home() {
               <span className={styles.currentTime}>{currentTime}</span>{' '}
               <span>{`星期${['日', '一', '二', '三', '四', '五', '六'][new Date().getDay()]}`}</span>
             </div>
-            <div className={styles.notificationContainer}>
-              <div className={styles.notificationIcon}>🔔</div>
-              <div className={styles.notificationBadge}>{notifications.length}</div>
-            </div>
+
           </div>
         </div>
         <div className={styles.welcomeMessage}>
@@ -183,65 +157,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 最近录入患者 */}
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>最近录入患者</h2>
-          <Link href="/patient-form" className={styles.viewMore}>录入新患者</Link>
-        </div>
-        <div className={styles.patientList}>
-          {recentPatients.map((patient) => (
-            <Link key={patient.id} href={`/patient-form?id=${patient.id}`} className={styles.patientCard}>
-              <div className={styles.patientInfo}>
-                <h3 className={styles.patientName}>{patient.name}</h3>
-                <div className={styles.patientMeta}>
-                  <span>{patient.age}岁</span>
-                  <span>{patient.gender}</span>
-                  <span>最后就诊: {patient.lastVisit}</span>
-                </div>
-              </div>
-              <div className={`${styles.statusBadge} ${patient.status === '已审核' ? styles.statusApproved : styles.statusPending}`}>
-                {patient.status}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 最近预约 */}
-      {recentAppointments.length > 0 && (
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>最近预约</h2>
-            <Link href="/appointment-records" className={styles.viewMore}>查看全部</Link>
-          </div>
-          <div className={styles.appointmentList}>
-            {recentAppointments.map((appointment) => (
-              <div key={appointment.id} className={styles.appointmentCard}>
-                <div className={styles.appointmentHeader}>
-                  <span className={styles.appointmentDepartment}>{appointment.department}</span>
-                  <span className={`${styles.statusBadge} ${appointment.status === '已预约' ? styles.statusConfirmed : appointment.status === '待审核' ? styles.statusPending : styles.statusCompleted}`}>
-                    {appointment.status}
-                  </span>
-                </div>
-                <div className={styles.appointmentInfo}>
-                  <div className={styles.appointmentDetail}>
-                    <strong>医生:</strong> {appointment.doctor}
-                  </div>
-                  <div className={styles.appointmentDetail}>
-                    <strong>时间:</strong> {appointment.date} {appointment.time}
-                  </div>
-                </div>
-                <div className={styles.appointmentActions}>
-                  <Link href={`/appointment-records/${appointment.id}`} className={styles.detailButton}>查看详情</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* 推荐医生 */}
+      {/* 推荐医生 - 移至更醒目的位置 */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>推荐医生</h2>
@@ -265,40 +181,34 @@ function Home() {
         </div>
       </section>
 
-      {/* 系统通知 */}
+      {/* 最近患者 - 移除预约标签页，只保留患者列表 */}
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>系统通知</h2>
-        <div className={styles.notificationList}>
-          {notifications.map((notification) => (
-            <div key={notification.id} className={styles.notificationItem}>
-              <div className={styles.notificationIcon}>📢</div>
-              <div className={styles.notificationContent}>
-                <h4 className={styles.notificationTitle}>{notification.title}</h4>
-                <p className={styles.notificationMessage}>{notification.message}</p>
-                <p className={styles.notificationTime}>{notification.time}</p>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>最近患者</h2>
+          <Link href="/patient-form" className={styles.viewMore}>录入新患者</Link>
+        </div>
+        <div className={styles.patientList}>
+          {recentPatients.map((patient) => (
+            <Link key={patient.id} href={`/patient-form?id=${patient.id}`} className={styles.patientCard}>
+              <div className={styles.patientInfo}>
+                <h3 className={styles.patientName}>{patient.name}</h3>
+                <div className={styles.patientMeta}>
+                  <span>{patient.age}岁</span>
+                  <span>{patient.gender}</span>
+                  <span>最后就诊: {patient.lastVisit}</span>
+                </div>
               </div>
-            </div>
+              <div className={`${styles.statusBadge} ${patient.status === '已审核' ? styles.statusApproved : styles.statusPending}`}>
+                {patient.status}
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* 健康提醒 */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>健康提醒</h2>
-        <div className={styles.reminderList}>
-          {healthReminders.map((reminder) => (
-            <div key={reminder.id} className={`${styles.reminderCard} ${styles[`level${reminder.level.charAt(0).toUpperCase() + reminder.level.slice(1)}`]}`}>
-              <div className={styles.reminderIcon}>
-                {reminder.level === 'high' ? '🔴' : reminder.level === 'medium' ? '🟡' : '🟢'}
-              </div>
-              <div className={styles.reminderContent}>
-                <h4 className={styles.reminderTitle}>{reminder.title}</h4>
-                <p className={styles.reminderMessage}>{reminder.message}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 推荐医生模块已移至上方 */}
+
+
 
       {/* 使用说明 */}
       <section className={styles.section}>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'next/link';
+import Link from 'next/link';
 import styles from '../styles/AppointmentRecords.module.css';
 
 // 模拟预约记录数据
