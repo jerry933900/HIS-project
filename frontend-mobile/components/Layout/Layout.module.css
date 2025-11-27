@@ -9,6 +9,7 @@
 .main {
   flex: 1;
   overflow-y: auto;
+  padding-top: 16px; /* 默认padding，TopNav会通过JavaScript动态调整 */
   padding-bottom: var(--bottom-nav-height);
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;

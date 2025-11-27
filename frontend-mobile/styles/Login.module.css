@@ -1,112 +1,445 @@
+/* 登录页面样式 */
 .container {
-  min-height: 100vh;
-  background-color: #f5f5f5;
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  animation: gradientBackground 15s ease infinite;
+  background-size: 200% 200%;
 }
 
+/* 背景动画 */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 背景装饰元素 */
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+  animation: float 10s ease-in-out infinite;
+}
+
+.container::before {
+  background: #4a5568;
+  top: -50px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.container::after {
+  background: #764ba2;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, 20px) scale(1.1);
+  }
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 表单容器悬浮效果 */
+.formContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  animation: gradientBorder 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.formContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 头部区域 */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Logo 容器 */
 .logoContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
 }
 
+/* Logo 样式 */
 .logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #1677ff, #096dd9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(22, 119, 255, 0.3);
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
 }
 
-.logoText {
-  font-size: 36px;
-  font-weight: bold;
-  color: white;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.appName {
-  font-size: 24px;
-  font-weight: 600;
+.title {
+  margin-bottom: 0.5rem;
   color: #333;
-  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0.25rem 0;
 }
 
-.tagline {
-  font-size: 14px;
+.subtitle {
+  margin-bottom: 1.5rem;
   color: #666;
-  margin-top: 8px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
 }
 
-.formContainer {
-  background-color: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.mockInfo {
+  background-color: rgba(248, 249, 250, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e9ecef;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mockAccount {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.mockAccount:last-child {
+  margin-bottom: 0;
+}
+
+/* 表单样式 */
+.form {
+  display: flex;
+  flex-direction: column;
 }
 
 .inputGroup {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .label {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
 }
 
+/* 输入框包装器 */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-clip: padding-box;
+}
+
+/* 输入框悬停效果 */
+.inputWrapper:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 输入框聚焦效果 */
+.inputWrapper:focus-within {
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+  border-image-slice: 1;
+  transform: translateY(-1px);
+}
+
+/* 输入框图标容器 */
+.inputIconContainer {
+  padding: 0 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 输入框图标 */
+.inputIcon {
+  width: 22px;
+  height: 22px;
+  color: #999;
+  flex-shrink: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* 聚焦时图标效果 */
+.inputWrapper:focus-within .inputIcon {
+  color: #667eea;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(102, 126, 234, 0.3));
+}
+
+/* 输入框分隔线 */
+.inputDivider {
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, #e0e0e0, transparent);
+  margin: 0 4px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.inputWrapper:focus-within .inputDivider {
+  opacity: 0.8;
+  background: linear-gradient(to bottom, transparent, #667eea, transparent);
+}
+
+/* 输入框 */
 .input {
   width: 100%;
-  height: 48px;
-  border-radius: 8px;
-  background-color: #f5f5f5;
-  border: 1px solid #e8e8e8;
-}
-
-.input:active,
-.input:focus {
-  border-color: #1677ff;
-  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
-}
-
-.loginButton {
-  width: 100%;
-  height: 48px;
-  border-radius: 24px;
-  font-size: 16px;
-  font-weight: 500;
-  background: linear-gradient(135deg, #1677ff, #096dd9);
+  padding: 1rem 1rem 1rem 0.875rem;
   border: none;
-  margin-top: 30px;
-}
-
-.testAccount {
-  margin-top: 30px;
-  padding: 16px;
-  background-color: #f0f7ff;
-  border-radius: 8px;
-  border: 1px solid #e6f7ff;
-}
-
-.testAccountTitle {
-  font-size: 14px;
+  border-radius: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  color: #1677ff;
-  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  outline: none;
+  color: #333;
+  position: relative;
+  z-index: 1;
 }
 
-.testAccount Text {
-  display: block;
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 4px;
+/* 输入框焦点状态 */
+.input:focus {
+  color: #222;
+}
+
+/* 输入框占位符 */
+.input::placeholder {
+  color: #aaa;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.input:focus::placeholder {
+  color: #ccc;
+  transform: translateX(4px);
+}
+
+/* 输入框背景装饰 */
+.inputWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.inputWrapper:focus-within::before {
+  opacity: 1;
+}
+
+/* 输入状态指示器 */
+.inputStatus {
+  position: absolute;
+  right: 0.875rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.inputWrapper:focus-within .inputStatus {
+  opacity: 1;
+  background: #667eea;
+  box-shadow: 0 0 6px rgba(102, 126, 234, 0.5);
+}
+
+/* 错误提示 */
+.error {
+  color: #e53e3e;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #fed7d7;
+  font-size: 0.9rem;
+  border-left: 4px solid #e53e3e;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* 按钮样式 */
+.button {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-position 0.3s;
+  margin-top: 1rem;
+  background-size: 200% 200%;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.4s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background-position: right center;
+}
+
+.button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 按钮内容容器 */
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* 加载动画 */
+.spinner {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 页脚样式 */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footerText {
+  color: #888;
+  font-size: 0.875rem;
+  margin: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer:hover .footerText {
+  opacity: 1;
 }

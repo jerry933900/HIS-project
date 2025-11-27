@@ -4,12 +4,12 @@ import styles from '../styles/Home.module.css';
 
 // 模拟数据 - 移动端数据录入和查看专用
 const departments = [
-  { id: 1, name: '内科', description: '内科疾病诊疗', doctorCount: 15, icon: '💊', count: 128 },
-  { id: 2, name: '外科', description: '外科手术与治疗', doctorCount: 12, icon: '🔪', count: 96 },
-  { id: 3, name: '儿科', description: '儿童疾病诊治', doctorCount: 10, icon: '👶', count: 156 },
-  { id: 4, name: '妇产科', description: '妇产科疾病诊疗', doctorCount: 8, icon: '🤱', count: 87 },
-  { id: 5, name: '眼科', description: '眼部疾病诊疗', doctorCount: 6, icon: '👁️', count: 64 },
-  { id: 6, name: '口腔科', description: '口腔疾病诊疗', doctorCount: 9, icon: '🦷', count: 102 },
+  { id: 1, name: '内科', description: '内科疾病诊疗', doctorCount: 15, icon: '💊', count: 128, departmentId: 1 },
+  { id: 2, name: '外科', description: '外科手术与治疗', doctorCount: 12, icon: '🔪', count: 96, departmentId: 6 },
+  { id: 3, name: '儿科', description: '儿童疾病诊治', doctorCount: 10, icon: '👶', count: 156, departmentId: 12 },
+  { id: 4, name: '妇产科', description: '妇产科疾病诊疗', doctorCount: 8, icon: '🤱', count: 87, departmentId: 11 },
+  { id: 5, name: '眼科', description: '眼部疾病诊疗', doctorCount: 6, icon: '👁️', count: 64, departmentId: 14 },
+  { id: 6, name: '口腔科', description: '口腔疾病诊疗', doctorCount: 9, icon: '🦷', count: 102, departmentId: 16 },
 ];
 
 const quickActions = [
@@ -147,11 +147,11 @@ function Home() {
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>热门科室</h2>
-          <Link href="/departments" className={styles.viewMore}>更多</Link>
+          <Link href="/popular-departments" className={styles.viewMore}>更多</Link>
         </div>
         <div className={styles.departmentGrid}>
           {departments.map((dept) => (
-            <Link key={dept.id} href={`/departments/${dept.id}`} className={styles.departmentCard}>
+            <Link key={dept.id} href={`/doctors?department=${dept.departmentId}`} className={styles.departmentCard}>
               <div className={styles.departmentIcon}>{dept.icon}</div>
               <h3 className={styles.departmentName}>{dept.name}</h3>
               <p className={styles.departmentDesc}>{dept.description}</p>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import BackButton from '../components/common/BackButton';
+import { logoutAction } from '../store/userSlice';
 import styles from '../styles/Profile.module.css';
 
 // 模拟用户数据
@@ -15,7 +18,11 @@ const mockUserData = {
 };
 
 const Profile = () => {
-  const [userData] = useState(mockUserData);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { userInfo } = useSelector(state => state.user);
+  // 如果Redux中有用户信息，使用它；否则使用mock数据
+  const [userData] = useState(userInfo || mockUserData);
   const [notificationCount, setNotificationCount] = useState(3);
   const [appointments, setAppointments] = useState(5);
   const [systemNotifications, setSystemNotifications] = useState([]);
@@ -213,7 +220,15 @@ const Profile = () => {
       )}
 
       {/* 退出登录按钮 */}
-      <button className={styles.logoutButton}>
+      <button 
+        className={styles.logoutButton}
+        onClick={() => {
+          // 调用退出登录action
+          dispatch(logoutAction());
+          // 跳转到登录页面
+          router.push('/login');
+        }}
+      >
         退出登录
       </button>
 

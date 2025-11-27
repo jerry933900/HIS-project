@@ -10,6 +10,8 @@ const Icon = ({ name, className }) => {
     home: '🏠',
     appointment: '📅',
     profile: '👤',
+    reports: '📋',
+    consultations: '💬',
   };
   
   return <span className={className}>{iconMap[name] || '•'}</span>;
@@ -45,6 +47,18 @@ const Navigation = () => {
       label: '预约',
       icon: 'appointment',
       path: '/appointments',
+    },
+    {
+      id: 'reports',
+      label: '报告',
+      icon: 'reports',
+      path: '/reports',
+    },
+    {
+      id: 'consultations',
+      label: '咨询',
+      icon: 'consultations',
+      path: '/consultations',
     },
     {
       id: 'profile',

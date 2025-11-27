@@ -1,0 +1,558 @@
+/* 热门科室页面样式 */
+
+.container {
+  padding: 16px;
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 科室列表 */
+.departmentList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 科室卡片 */
+.departmentCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+}
+
+.departmentCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #e8f4fd;
+}
+
+/* 科室卡片头部 */
+.departmentHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.departmentIcon {
+  font-size: 44px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 12px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.departmentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.departmentName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.departmentDescription {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 热门度徽章 */
+.popularityBadge {
+  background: linear-gradient(135deg, #fff7e6 0%, #fff1d6 100%);
+  color: #d48806;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* 科室统计信息 */
+.departmentStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  gap: 12px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+/* 科室详情弹窗 */
+.detailOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.detailModal {
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.detailHeader {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background-color: #f5f5f5;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.detailContent {
+  padding: 20px;
+}
+
+.detailIcon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  text-align: center;
+  display: block;
+}
+
+.detailDescription {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* 特色服务 */
+.featuredServices {
+  margin: 20px 0;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.servicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.serviceItem {
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.serviceItem:last-child {
+  border-bottom: none;
+}
+
+.serviceItem::before {
+  content: "✓";
+  color: #52c41a;
+  font-weight: bold;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* 科室统计数据 */
+.detailStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.detailStatItem {
+  background: linear-gradient(135deg, #f6ffed 0%, #f0f9e6 100%);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e6f7ff;
+}
+
+.detailStatLabel {
+  font-size: 11px;
+  color: #888;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.detailStatValue {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+/* 预约按钮 */
+.appointmentButton {
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.appointmentButton:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #69c0ff 100%);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* 详情页按钮组 */
+.detailActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.primaryButton {
+  flex: 1;
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  color: white;
+  border: none;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #69c0ff 100%);
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  flex: 1;
+  background-color: white;
+  color: #1890ff;
+  border: 1px solid #d9d9d9;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  background-color: #f0f9ff;
+  border-color: #91d5ff;
+  color: #096dd9;
+  transform: translateY(-2px);
+}
+
+/* 科室卡片底部 */
+.departmentFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #f0f0f0;
+}
+
+.waitingTime {
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.departmentCard {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.departmentCard:nth-child(1) { animation-delay: 0.05s; }
+.departmentCard:nth-child(2) { animation-delay: 0.1s; }
+.departmentCard:nth-child(3) { animation-delay: 0.15s; }
+.departmentCard:nth-child(4) { animation-delay: 0.2s; }
+.departmentCard:nth-child(5) { animation-delay: 0.25s; }
+.departmentCard:nth-child(6) { animation-delay: 0.3s; }
+.departmentCard:nth-child(7) { animation-delay: 0.35s; }
+.departmentCard:nth-child(8) { animation-delay: 0.4s; }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+    padding: 12px 0;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .departmentList {
+    gap: 12px;
+  }
+  
+  .departmentCard {
+    padding: 16px;
+  }
+  
+  .departmentIcon {
+    font-size: 40px;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .departmentName {
+    font-size: 18px;
+  }
+  
+  .departmentStats {
+    gap: 8px;
+  }
+  
+  .statValue {
+    font-size: 14px;
+  }
+  
+  .detailStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .detailStatItem {
+    padding: 14px;
+  }
+  
+  .detailStatValue {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8px;
+  }
+  
+  .header {
+    margin-bottom: 16px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .subtitle {
+    font-size: 13px;
+  }
+  
+  .departmentCard {
+    padding: 14px;
+  }
+  
+  .departmentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .departmentIcon {
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+  
+  .popularityBadge {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+  
+  .departmentStats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 12px;
+  }
+  
+  .statItem {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .statLabel {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  
+  .departmentFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .appointmentButton {
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  .detailContent {
+    padding: 16px;
+  }
+  
+  .detailHeader {
+    padding: 16px;
+  }
+  
+  .detailTitle {
+    font-size: 20px;
+  }
+  
+  .detailStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .detailActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
