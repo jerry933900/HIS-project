@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import BackButton from '../components/common/BackButton';
+
 import { logoutAction } from '../store/userSlice';
 import styles from '../styles/Profile.module.css';
 
@@ -117,7 +117,6 @@ const Profile = () => {
     <div className={styles.container}>
       {/* 页面头部 */}
       <div className={styles.header}>
-        <BackButton />
         <h1 className={styles.headerTitle}>个人中心</h1>
       </div>
 

@@ -107,6 +107,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .statCard {
@@ -171,6 +172,69 @@
   color: #999;
   opacity: 0;
   transition: opacity 0.2s;
+}
+
+/* 快捷访问入口样式 */
+.quickAccessContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quickAccessCard {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #4caf50;
+}
+
+.quickAccessCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+  background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+}
+
+.quickAccessCard .chevronIcon {
+  opacity: 1;
+  color: #4caf50;
+  font-size: 24px;
+}
+
+.quickAccessIcon {
+  font-size: 32px;
+  margin-right: 16px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quickAccessContent {
+  flex: 1;
+}
+
+.quickAccessContent h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.quickAccessContent p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
 }
 
 .statCardLink:hover .chevronIcon {
@@ -246,6 +310,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  margin-top: 10px;
 }
 
 .actionItem {

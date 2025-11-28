@@ -9,8 +9,8 @@ const Layout = ({ children, title, showBackButton = true, backLink = '/', rightI
   const pathname = router.pathname;
   const mainRef = useRef(null);
   
-  // 首页、预约和个人中心页面不需要显示TopNav
-  const noTopNavPages = ['/', '/appointments', '/appointment', '/profile'];
+  // 首页、预约、个人中心和在线咨询页面不需要显示TopNav
+  const noTopNavPages = ['/', '/appointments', '/appointment', '/profile', '/consultations', '/reports'];
   const shouldShowTopNav = !noTopNavPages.includes(pathname);
 
   // 动态调整main的padding-top，适配新的TopNav高度

@@ -32,51 +32,64 @@ const AppointmentsPage = ({ appointments = [] }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.pageTitle}>我的预约</h1>
-      </div>
-
-      {/* 预约筛选栏 */}
-      <div className={styles.filterBar}>
-        <div className={styles.filterTabs}>
-          {filterTabs.map(tab => (
-            <button
-              key={tab.key}
-              className={activeFilter === tab.key ? styles.filterTabActive : styles.filterTab}
-              onClick={() => setActiveFilter(tab.key)}
-            >
-              {tab.label}
-            </button>
-          ))}
+        <div className={styles.header}>
+          <h1 className={styles.pageTitle}>我的预约</h1>
         </div>
-      </div>
 
-      {/* 预约列表 */}
-      <div className={styles.appointmentsList}>
-        {filteredAppointments.length === 0 ? (
-          <div className={styles.emptyState}>
-            <div className={styles.emptyIcon}>📋</div>
-            <p className={styles.emptyText}>
-              {activeFilter === 'all' ? '暂无预约记录' : `暂无${filterTabs.find(t => t.key === activeFilter)?.label}的预约记录`}
-            </p>
-            <Link href="/appointment" className={styles.emptyAction}>去预约</Link>
+        {/* 预约筛选栏 */}
+        <div className={styles.filterBar}>
+          <div className={styles.filterTabs}>
+            {filterTabs.map(tab => (
+              <button
+                key={tab.key}
+                className={activeFilter === tab.key ? styles.filterTabActive : styles.filterTab}
+                onClick={() => setActiveFilter(tab.key)}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
-        ) : (
-          filteredAppointments.map((appointment) => (
-            <div key={appointment.id} className={styles.appointmentCard}>
-              {/* 医生信息部分 */}
-              <div className={styles.doctorSection}>
-                <div className={styles.doctorInfo}>
-                  <div className={styles.doctorName}>{appointment.doctorName}</div>
-                  <div className={styles.doctorTitle}>
-                    {appointment.doctorTitle} | {appointment.department}
+        </div>
+
+        {/* 预约列表 */}
+        <div className={styles.appointmentsList}>
+          {filteredAppointments.length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>📋</div>
+              <p className={styles.emptyText}>
+                {activeFilter === 'all' ? '暂无预约记录' : `暂无${filterTabs.find(t => t.key === activeFilter)?.label}的预约记录`}
+              </p>
+              <Link href="/appointment" className={styles.emptyAction}>去预约</Link>
+            </div>
+          ) : (
+            filteredAppointments.map((appointment) => (
+              <div 
+                key={appointment.id} 
+                className={styles.appointmentCard}
+                data-status={appointment.status}
+              >
+                {/* 医生信息部分 */}
+                <div className={styles.doctorSection}>
+                  <div className={styles.doctorInfo}>
+                    <div className={styles.doctorAvatar}>
+                      {appointment.doctorName.charAt(0)}
+                    </div>
+                    <div className={styles.doctorDetails}>
+                      <div className={styles.doctorName}>
+                        {appointment.doctorName}
+                      </div>
+                      <div className={styles.doctorTitle}>
+                        {appointment.doctorTitle} 
+                        <span>•</span> 
+                        {appointment.department}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={`${styles.appointmentStatus} ${styles[`status${appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1)}`]}`}>
+                    {appointment.status === 'pending' ? '待就诊' : 
+                     appointment.status === 'completed' ? '已完成' : '已取消'}
                   </div>
                 </div>
-                <div className={`${styles.appointmentStatus} ${styles[`status${appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1)}`]}`}>
-                  {appointment.status === 'pending' ? '待就诊' : 
-                   appointment.status === 'completed' ? '已完成' : '已取消'}
-                </div>
-              </div>
 
               {/* 预约详情部分 */}
               <div className={styles.appointmentDetails}>

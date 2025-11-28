@@ -28,17 +28,7 @@ const recentAppointments = [
   { id: 1004, department: '妇产科', doctor: '赵医生', date: '2025-12-05', time: '15:00', status: '待确认', departmentId: 4 },
 ];
 
-const topDoctors = [
-  { id: 1, name: '张医生', department: '内科', title: '主任医师', rating: 4.9, patientCount: 1200, available: true },
-  { id: 2, name: '李医生', department: '外科', title: '副主任医师', rating: 4.8, patientCount: 980, available: true },
-  { id: 3, name: '王医生', department: '儿科', title: '主任医师', rating: 4.7, patientCount: 1500, available: false },
-];
 
-const recentPatients = [
-  { id: 2001, name: '张三', age: 35, gender: '男', lastVisit: '2025-11-20', status: '已审核' },
-  { id: 2002, name: '李四', age: 42, gender: '女', lastVisit: '2025-11-18', status: '已审核' },
-  { id: 2003, name: '王五', age: 12, gender: '男', lastVisit: '2025-11-22', status: '待审核' },
-];
 
 
 
@@ -164,58 +154,31 @@ function Home() {
         </div>
       </section>
 
-      {/* 推荐医生 - 移至更醒目的位置 */}
+      {/* 快捷访问入口 - 替代详细列表 */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>推荐医生</h2>
-          <Link href="/doctors" className={styles.viewMore}>更多</Link>
+          <h2 className={styles.sectionTitle}>医疗服务</h2>
         </div>
-        <div className={styles.doctorList}>
-          {topDoctors.map((doctor) => (
-            <div key={doctor.id} className={styles.doctorCard}>
-              <div className={styles.doctorInfo}>
-                <h3 className={styles.doctorName}>{doctor.name}</h3>
-                <p className={styles.doctorDepartment}>{doctor.department} · {doctor.title}</p>
-                <div className={styles.doctorRating}>
-                  <span className={styles.ratingStar}>⭐</span>
-                  <span>{doctor.rating}</span>
-                  <span className={styles.patientCount}>({doctor.patientCount}人次就诊)</span>
-                </div>
-              </div>
-              <Link href={`/appointment?doctorId=${doctor.id}`} className={styles.appointButton}>预约</Link>
+        <div className={styles.quickAccessContainer}>
+          <Link href="/doctors" className={styles.quickAccessCard}>
+            <div className={styles.quickAccessIcon}>👨‍⚕️</div>
+            <div className={styles.quickAccessContent}>
+              <h3>医生咨询</h3>
+              <p>查看所有医生信息和预约</p>
             </div>
-          ))}
+            <div className={styles.chevronIcon}>›</div>
+          </Link>
+          
+          <Link href="/patients" className={styles.quickAccessCard}>
+            <div className={styles.quickAccessIcon}>👥</div>
+            <div className={styles.quickAccessContent}>
+              <h3>患者管理</h3>
+              <p>查看和管理患者信息</p>
+            </div>
+            <div className={styles.chevronIcon}>›</div>
+          </Link>
         </div>
       </section>
-
-      {/* 最近患者 - 移除预约标签页，只保留患者列表 */}
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>最近患者</h2>
-          <Link href="/patient-form" className={styles.viewMore}>录入新患者</Link>
-        </div>
-        <div className={styles.patientList}>
-          {recentPatients.map((patient) => (
-            <Link key={patient.id} href={`/patient-form?id=${patient.id}`} className={styles.patientCard}>
-              <div className={styles.patientInfo}>
-                <h3 className={styles.patientName}>{patient.name}</h3>
-                <div className={styles.patientMeta}>
-                  <span>{patient.age}岁</span>
-                  <span>{patient.gender}</span>
-                  <span>最后就诊: {patient.lastVisit}</span>
-                </div>
-              </div>
-              <div className={`${styles.statusBadge} ${patient.status === '已审核' ? styles.statusApproved : styles.statusPending}`}>
-                {patient.status}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 推荐医生模块已移至上方 */}
-
-
 
       {/* 使用说明 */}
       <section className={styles.section}>
