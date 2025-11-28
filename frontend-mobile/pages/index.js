@@ -81,14 +81,13 @@ function Home() {
             <p className={styles.subtitle}>患者移动端</p>
           </div>
           <div className={styles.headerRight}>
-            <div className={styles.timeContainer}>
-              <span className={styles.currentDate}>{currentDate}</span>
-               {' '}
-              <span className={styles.currentTime}>{currentTime}</span>{' '}
-              <span>{`星期${['日', '一', '二', '三', '四', '五', '六'][new Date().getDay()]}`}</span>
+              <div className={styles.timeContainer}>
+                <div className={styles.weekday}>
+                  {`星期${['日', '一', '二', '三', '四', '五', '六'][new Date().getDay()]}`}
+                </div>
+                <div className={styles.currentTime}>{currentTime}</div>
+              </div>
             </div>
-
-          </div>
         </div>
         <div className={styles.welcomeMessage}>
           您好！欢迎使用移动医疗服务

@@ -17,7 +17,7 @@ const Layout = ({
   const pathname = router.pathname;
   const mainRef = useRef(null);
 
-  // 首页、预约、个人中心、在线咨询和咨询聊天页面不需要显示TopNav
+  // 首页、预约、个人中心、在线咨询、报告和报告详情页面不需要显示TopNav
   const noTopNavPages = [
     "/",
     "/appointments",
@@ -26,6 +26,7 @@ const Layout = ({
     "/consultations",
     "/reports",
     "/statistics",
+    "/report-detail"
   ];
   const shouldShowTopNav = !noTopNavPages.includes(pathname) && !pathname.startsWith("/consultation-chat/");
 

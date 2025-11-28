@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Toast } from 'antd-mobile';
 import { store } from '../store';
+import logger from './logger';
 
 // 创建axios实例
 const service = axios.create({
@@ -20,10 +21,14 @@ service.interceptors.request.use(
       // 设置Authorization header
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
+    // 记录请求日志
+    logger.apiRequest(config.method.toUpperCase(), config.url, config.params || config.data);
+    
     return config;
   },
   (error) => {
-    console.error('请求错误:', error);
+    logger.error('请求拦截器错误:', error);
     return Promise.reject(error);
   }
 );
@@ -32,6 +37,14 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const res = response.data;
+    
+    // 记录响应日志
+    logger.apiResponse(
+      response.config.method.toUpperCase(), 
+      response.config.url, 
+      response.status,
+      res
+    );
     
     // 根据后端返回的数据格式，这里假设成功时code为0
     if (res.code !== undefined && res.code !== 0) {
@@ -46,7 +59,17 @@ service.interceptors.response.use(
     return res;
   },
   (error) => {
-    console.error('响应错误:', error);
+    // 记录错误响应日志
+    if (error.response) {
+      logger.apiResponse(
+        error.response.config?.method?.toUpperCase() || 'UNKNOWN',
+        error.response.config?.url || 'UNKNOWN',
+        error.response.status,
+        error.response.data
+      );
+    } else {
+      logger.error('网络请求失败:', error.message);
+    }
     
     // 处理网络错误、超时等
     if (!error.response) {
@@ -94,7 +117,7 @@ service.interceptors.response.use(
         });
     }
     
-    return Promise.reject(error.response.data || error);
+    return Promise.reject(error.response?.data || error);
   }
 );
 

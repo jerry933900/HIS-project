@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { login } from '../store/userSlice';
 import styles from '../styles/Login.module.css';
+import logger from '../utils/logger';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -21,18 +22,25 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    
+    // 记录登录尝试
+    logger.info('用户登录尝试', { username });
 
     // 检查是否是有效的mock用户
     const validUser = mockUsers.find(user => user.username === username && user.password === password);
     if (!validUser) {
+      logger.warn('登录失败：用户名或密码错误', { username });
       setError('用户名或密码错误，请使用mock账号: admin/admin123 或 testuser/test123');
       return;
     }
 
     try {
+      logger.info('登录验证成功，准备分发登录action', { username });
       await dispatch(login(username, password));
+      logger.info('用户登录成功，正在跳转', { username, destination: '/' });
       router.push('/');
     } catch (err) {
+      logger.error('登录过程出错', { username, error: err.message });
       setError(err.message || '登录失败，请重试');
     }
   };

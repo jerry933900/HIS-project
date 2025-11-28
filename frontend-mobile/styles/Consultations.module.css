@@ -53,6 +53,12 @@
   cursor: pointer;
 }
 
+/* 占位按钮，用于保持头部布局平衡 */
+.placeholderButton {
+  width: 60px; /* 与原来的新建按钮宽度大致相同 */
+  visibility: hidden;
+}
+
 /* 内容区域 */
 .content {
   margin-top: 16px;

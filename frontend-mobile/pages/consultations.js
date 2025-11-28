@@ -81,9 +81,9 @@ const ConsultationsPage = () => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          <Link href="/" className={styles.backButton}>← 返回</Link>
+          <Link href="/" className={styles.backButton}>←</Link>
           <h1 className={styles.title}>在线咨询</h1>
-          <button className={styles.newConsultButton}>新建</button>
+          <div className={styles.placeholderButton}></div>
         </div>
         <div className={styles.loadingContainer}>
           <div>加载中...</div>
@@ -97,9 +97,9 @@ const ConsultationsPage = () => {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          <Link href="/" className={styles.backButton}>← 返回</Link>
+          <Link href="/" className={styles.backButton}>←</Link>
           <h1 className={styles.title}>在线咨询</h1>
-          <button className={styles.newConsultButton}>新建</button>
+          <div className={styles.placeholderButton}></div>
         </div>
         <div className={styles.errorContainer}>
           <p>{error}</p>
@@ -112,10 +112,10 @@ const ConsultationsPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link href="/" className={styles.backButton}>← 返回</Link>
-        <h1 className={styles.title}>在线咨询</h1>
-        <button className={styles.newConsultButton}>新建</button>
-      </div>
+          <Link href="/" className={styles.backButton}>←</Link>
+          <h1 className={styles.title}>在线咨询</h1>
+          <div className={styles.placeholderButton}></div>
+        </div>
       
       <div className={styles.content}>
         {/* 搜索栏 */}
