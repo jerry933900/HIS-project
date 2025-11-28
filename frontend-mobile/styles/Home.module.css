@@ -107,7 +107,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-bottom: 20px;
-  margin-top: 10px;
 }
 
 .statCard {
@@ -310,7 +309,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 10px;
 }
 
 .actionItem {
